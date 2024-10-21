@@ -25,6 +25,14 @@ public class Cliente {
     public List<Reserva> getReservas() {
         return reservas;
     }
+    public Reserva getReservaPorId(String reservaId) {
+        for (Reserva r : getReservas()) {
+            if (r.getId().equals(reservaId)) {
+                return r;
+            }
+        }
+        return null;
+    }
 
     public void setNome(String nome) {
         this.nome = nome;
