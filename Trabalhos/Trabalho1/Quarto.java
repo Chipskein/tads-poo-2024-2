@@ -10,6 +10,7 @@ public class Quarto {
     public Quarto(String numero, TipoQuarto tipo, float preco) {
         this.numero = numero;
         this.tipo = tipo;
+        this.preco=preco;
         this.estaDisponivel = true;
     }
 

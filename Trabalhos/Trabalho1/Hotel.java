@@ -16,11 +16,11 @@ public class Hotel {
     }
     
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public String getEndereco() {
-        return endereco;
+        return this.endereco;
     }
 
     public void adicionarQuarto(Quarto quarto) {

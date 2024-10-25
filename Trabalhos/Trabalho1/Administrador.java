@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.Arrays;
 
 public class Administrador {
 
@@ -13,8 +14,27 @@ public class Administrador {
     public Administrador(String nome) {
         this.id = UUID.randomUUID().toString();
         this.nome = nome;
-        this.hoteis=new ArrayList<>();
-        this.clientes=new ArrayList<>();
+        this.hoteis=new ArrayList<>(
+            Arrays.asList(
+                new Hotel("Hotel 1","Rua 1"),
+                new Hotel("Hotel 2","Rua 2"),
+                new Hotel("Hotel 3","Rua 3")
+            )
+        );
+        this.hoteis.get(0).adicionarQuarto(new Quarto("101",TipoQuarto.SIMPLES,100));
+        this.hoteis.get(1).adicionarQuarto(new Quarto("101",TipoQuarto.FAMILIAR,120));
+        this.hoteis.get(2).adicionarQuarto(new Quarto("101",TipoQuarto.CASAL,150));
+        this.hoteis.get(0).adicionarQuarto(new Quarto("102",TipoQuarto.FAMILIAR,100));
+        this.hoteis.get(1).adicionarQuarto(new Quarto("102",TipoQuarto.CASAL,120));
+        this.hoteis.get(2).adicionarQuarto(new Quarto("102",TipoQuarto.EXECUTIVO,1500));
+        this.clientes=new ArrayList<>(
+            Arrays.asList(
+                new Cliente("Cliente 1","c1@gmail.com","123456789"),
+                new Cliente("Cliente 2","c2@gmail.com","123456789"),
+                new Cliente("Cliente 3","c3@gmail.com","123456789")
+            )
+        );
+        
     }
 
     public Hotel procuraPeloNomeDoHotel(String nomeHotel){
@@ -28,11 +48,11 @@ public class Administrador {
     }
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public void setNome(String nome) {
@@ -40,11 +60,11 @@ public class Administrador {
     }
     
     public void adicionarHotel(Hotel hotel){
-        hoteis.add(hotel);
+        this.hoteis.add(hotel);
     }
 
     public List<Hotel> listarHoteis(){
-       return hoteis;
+       return this.hoteis;
     }
 
     public void adicionarCliente(Cliente cliente) {
@@ -65,18 +85,10 @@ public class Administrador {
         return null;
     }
 
-    public Reserva procurarReserva(String idReserva) {
-        for (Cliente cliente : this.clientes) {
-            var r=cliente.getReservaPorId(idReserva);
-            if(r!=null){
-                return r;
-            }
-        }
-        return null;
-    }
+    
     
     public List<Cliente> getClientes() {
-        return clientes;
+        return this.clientes;
     }
 
    

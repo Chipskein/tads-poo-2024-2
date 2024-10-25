@@ -15,7 +15,9 @@ public class Main {
             System.out.println("5. Fazer Reserva");
             System.out.println("6. Cancelar Reserva");
             System.out.println("7. Listar Reservas de um Cliente");
-            System.out.println("8. Sair");
+            System.out.println("8. Registrar Cliente");
+            System.out.println("9. Listar Clientes");
+            System.out.println("10. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
             scanner.nextLine(); // Gambers: nextInt -> não consome a quebra de linha
@@ -55,10 +57,10 @@ public class Main {
                     var emailCliente=scanner.nextLine();
                     System.out.println("Digite a data de inicio da reserva(yyyy-MM-dd): ");
                     var dataInicioStr=scanner.nextLine();
-                    var dataInicio = new SimpleDateFormat("yyyy/MM/dd").parse(dataInicioStr);
+                    var dataInicio = new SimpleDateFormat("yyyy-MM-dd").parse(dataInicioStr);
                     System.out.println("Digite a data do fim da reserva(yyyy-MM-dd): ");
                     var dataFimStr=scanner.nextLine();
-                    var dataFim = new SimpleDateFormat("yyyy/MM/dd").parse(dataFimStr);
+                    var dataFim = new SimpleDateFormat("yyyy-MM-dd").parse(dataFimStr);
                     sistema.fazerReserva(nomeHotel,numeroQuarto,emailCliente,dataInicio,dataFim);
                 }
                 case 6 -> {
@@ -71,14 +73,24 @@ public class Main {
                     String emailCliente = scanner.nextLine();
                     sistema.listarReservasCliente(emailCliente);
                 }
-                case 8 -> System.out.println("Saindo do sistema...");
+                case 8 -> {
+                    System.out.println("Digite o nome do cliente: ");
+                    var nome=scanner.nextLine();
+                    System.out.println("Digite o email do cliente: ");
+                    var email=scanner.nextLine();
+                    System.out.println("Digite o telefone do cliente: ");
+                    var telefone=scanner.nextLine();
+                    sistema.registrarCliente(nome,email,telefone);
+                }
+                case 9 -> sistema.listarClientes();
+                case 10 -> System.out.println("Saindo do sistema...");
                 default -> System.out.println("Opção inválida. Tente novamente.");
             }
             } catch (Exception e) {
                 System.out.println("Erro: " + e.getMessage());
             }
 
-        } while (opcao != 8);
+        } while (opcao != 10);
 
         scanner.close();
     }
