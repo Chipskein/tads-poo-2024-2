@@ -6,6 +6,10 @@ public class Cliente {
     private String nome;
     private String email;
     private String telefone;
+    /*
+        Composição entre Cliente e Reserva
+            Um cliente pode ter várias reservas mas uma reserva não existe sem um cliente, há dependência
+    */
     private List<Reserva> reservas;
     public Cliente(String nome, String email, String telefone) {
         this.nome = nome;

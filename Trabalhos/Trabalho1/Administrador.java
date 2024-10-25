@@ -7,7 +7,15 @@ public class Administrador {
 
     private String id;
     private String nome;
+    /*
+        Agregação 1 para n entre Administrador e Hotel
+            Um administrador pode gerenciar vários hoteis  mas um hotel pode existir sem um administrador, não há dependência
+    */
     private List<Hotel> hoteis;
+    /*
+        Agregação 1 para n entre Administrador e Cliente
+            Um administrador pode gerenciar vários clientes  mas um cliente pode existir sem um administrador, não há dependência
+    */
     private List<Cliente> clientes;
 
     

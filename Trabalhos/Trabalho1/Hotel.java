@@ -6,6 +6,10 @@ public class Hotel {
     
     private String endereco;
     
+    /* 
+        Agregação 1 para n entre Hotel e Quarto
+            Um hotel pode ter vários quartos mas um quarto existe independente do hotel, há dependência
+    */
     private List<Quarto>quartos;
 
     

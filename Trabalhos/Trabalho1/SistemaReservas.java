@@ -1,5 +1,9 @@
 import java.util.Date;
 public class SistemaReservas{
+    /*
+        Composição entre SistemaReservas e Administrador
+            Um sistema de reservas tem um administrador e um administrador não existe sem um sistema de reservas, há dependência 
+    */
     private Administrador administrador;
     public SistemaReservas(){
         this.administrador = new Administrador("Administrador");
@@ -147,6 +151,7 @@ public class SistemaReservas{
             System.out.println("Data de Início: " + reserva.getDataInicio());
             System.out.println("Data de Fim: " + reserva.getDataFim());
             System.out.println("Quarto: " + reserva.getQuarto().getNumero());
+            System.out.println("Cancelada: " + reserva.getCancelada());
             System.out.println("==================");
         }
     }

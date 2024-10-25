@@ -2,7 +2,15 @@ import java.util.Date;
 
 public class Reserva {
     private String id;
+    /*
+        Composição entre Reserva e Cliente
+            Uma reserva não existe sem um cliente, há dependência 
+    */
     private Cliente cliente;
+    /*
+        Composição entre Reserva e Quarto
+            Uma reserva não existe sem um quarto, há dependência 
+    */
     private Quarto quarto;
     private Date dataInicio;
     private Date dataFim;
