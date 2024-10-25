@@ -8,7 +8,7 @@ public class Hotel {
     
     /* 
         Agregação 1 para n entre Hotel e Quarto
-            Um hotel pode ter vários quartos mas um quarto existe independente do hotel, há dependência
+            Um hotel pode ter vários quartos mas um quarto existe independente do hotel, não há dependência
     */
     private List<Quarto>quartos;
 
