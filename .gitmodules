@@ -1,3 +1,4 @@
 [submodule "Trabalhos/Trabalho2"]
 	path = Trabalhos/Trabalho2
 	url = https://github.com/Chipskein/SoloChessing
+	branch = master
